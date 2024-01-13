@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup Form</title>
+</head>
+<body>
+<h2>Signup Form</h2>
+
+<!-- 회원가입 양식 -->
+<form action="/user/signup" method="post">
+
+    <!-- 사용자 이름 입력 -->
+    <div>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+    </div>
+
+    <!-- 첫 번째 비밀번호 입력 -->
+    <div>
+        <label for="password">비밀번호:</label>
+        <input type="password" id="password" name="password" required>
+    </div>
+
+    <!-- 두 번째 비밀번호 입력 -->
+    <div>
+        <label for="passwordConfirm">비밀번호 확인:</label>
+        <input type="password" id="passwordConfirm" name="passwordConfirm" required>
+    </div>
+    <div th:if="${error}">
+        <p th:text="${error}"></p>
+    </div>
+
+
+    <!-- 회원가입 버튼 -->
+    <div>
+        <button type="submit">Sign Up</button>
+    </div>
+</form>
+</body>
+</html>

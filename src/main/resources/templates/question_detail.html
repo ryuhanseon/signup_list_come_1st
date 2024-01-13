@@ -1,0 +1,17 @@
+<html layout:decorate="~{layout}">
+<div layout:fragment="content" class="container my-3">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>제목</h1>
+<div>내용</div>
+<h1 th:text="${question.subject}"></h1>
+<div th:text="${question.content}"></div>
+
+
+<a th:href="@{/question/list}" class="btn btn-primary">리스트로 이동</a>
+</body>
+</div>
+</html>
