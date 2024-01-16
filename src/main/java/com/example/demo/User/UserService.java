@@ -20,7 +20,7 @@ public class UserService {
     public User create(String username, String password){
         User user = new User();
         user.setUsername(username);
-        user.setPassword(password);
+        user.setPassword(passwordEncoder.encode(password));
         this.userRepository.save(user);
         return user;
     }
