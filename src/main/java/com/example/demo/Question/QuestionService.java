@@ -1,8 +1,6 @@
 package com.example.demo.Question;
 
 import com.example.demo.DataNotFoundException;
-import com.example.demo.Question.Question;
-import com.example.demo.Question.QuestionRepository;
 import com.example.demo.User.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -40,6 +38,7 @@ public class QuestionService {
         question.setModifyDate(LocalDateTime.now());
         this.questionRepository.save(question);
     }
+
 
 
 
