@@ -3,6 +3,7 @@ package com.example.demo.Question;
 import com.example.demo.DataNotFoundException;
 import com.example.demo.Question.Question;
 import com.example.demo.Question.QuestionRepository;
+import com.example.demo.User.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import java.util.Optional;
@@ -25,13 +26,21 @@ public class QuestionService {
             throw new DataNotFoundException("article not found");
         }
     }
-    public void create(String subject, String content) {
+    public void create(String subject, String content, User user) {
         Question q = new Question();
         q.setSubject(subject);
         q.setContent(content);
+        q.setAuthor(user);
         q.setCreateDate(LocalDateTime.now());
         this.questionRepository.save(q);
     }
+    public void modify(Question question, String subject, String content) {
+        question.setSubject(subject);
+        question.setContent(content);
+        question.setModifyDate(LocalDateTime.now());
+        this.questionRepository.save(question);
+    }
+
 
 
 }

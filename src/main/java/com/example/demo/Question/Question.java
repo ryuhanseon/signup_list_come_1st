@@ -1,5 +1,7 @@
 package com.example.demo.Question;
 
+import com.example.demo.User.User;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -23,5 +25,9 @@ public class Question {
     private String content;
 
     private LocalDateTime createDate;
+    @ManyToOne
+    private User author;
+
+    private LocalDateTime modifyDate;
 
 }
