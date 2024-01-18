@@ -17,6 +17,13 @@
            th:if="${question.author != null and #authentication.getPrincipal().getUsername() == question.author.username}"
            th:text="수정"></a>
     </div>
+    <form th:action="@{|/question/delete/${question.id}|}" th:method="post">
+        <button type="submit" class="btn btn-sm btn-outline-secondary"
+                sec:authorize="isAuthenticated()"
+                th:if="${question.author != null and #authentication.getPrincipal().getUsername() == question.author.username}"
+                th:text="삭제">삭제</button>
+    </form>
+
 
     <textarea sec:authorize="isAnonymous()" disabled th:field="*{question.content}" class="form-control" rows="10"></textarea>
     <textarea sec:authorize="isAuthenticated()" th:field="*{question.content}" class="form-control" rows="10"></textarea>
